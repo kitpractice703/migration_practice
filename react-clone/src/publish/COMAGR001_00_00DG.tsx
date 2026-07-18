@@ -9,6 +9,23 @@ function COMAGR001_00_00DG() {
 
   const [agreeMap, setAgreeMap] = useState<Record<number, string>>({});
 
+  const handleConfirm = () => {
+    const notAgreed = agreeList.filter(
+      (item) => item.isaFlag && agreeMap[item.no] !== "Y",
+    );
+    if (notAgreed.length > 0) {
+      alert("필수 동의 항목에 모두 동의(Y)해야 합니다.");
+      return;
+    }
+
+    const payload = agreeList.map((item) => ({
+      agrNo: item.no,
+      agrYn: agreeMap[item.no] || "N",
+    }));
+    console.log("[전문송신 mock] SM7903130001 →", JSON.stringify(payload));
+    alert("동의서 저장 완료");
+  };
+
   return (
     <div
       style={{
@@ -69,7 +86,7 @@ function COMAGR001_00_00DG() {
       </div>
       <div style={{ marginTop: 15, textAlign: "right" }}>
         <button onClick={() => console.log("[닫기] clicked")}>닫기</button>
-        <button onClick={() => console.log("[확인] clicked")}>확인</button>
+        <button onClick={handleConfirm}>확인</button>
       </div>
     </div>
   );
