@@ -1,7 +1,7 @@
-import AgreementPopup from "./publish/COMAGR001_00_00DG";
+import SavingsApplyPage from "./pages/SavingsApplyPage";
 
 function App() {
-  return <AgreementPopup />;
+  return <SavingsApplyPage />;
 }
 
 export default App;

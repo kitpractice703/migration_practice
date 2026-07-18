@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-function COMAGR001_00_00DG() {
+interface Props {
+  onClose: () => void;
+}
+
+function COMAGR001_00_00DG({ onClose }: Props) {
   const agreeList = [
     { no: 1, name: "개인신용정보 수집∙이용 동의", isaFlag: true },
     { no: 2, name: "상품설명 확인", isaFlag: true },
@@ -85,8 +89,9 @@ function COMAGR001_00_00DG() {
         (임시) 현재 동의 상태: {JSON.stringify(agreeMap)}
       </div>
       <div style={{ marginTop: 15, textAlign: "right" }}>
-        <button onClick={() => console.log("[닫기] clicked")}>닫기</button>
+        <button onClick={onClose}>닫기</button>
         <button onClick={handleConfirm}>확인</button>
+        alert("동의서 저장 완료"); onClose();
       </div>
     </div>
   );
