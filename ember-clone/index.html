@@ -42,6 +42,7 @@
         </thead>
         <tbody>
           {{#each item in agreeList}}
+          {{#if item.isaFlag}}
           <tr>
             <td>{{item.no}}</td>
             <td>{{item.name}}</td>
@@ -50,9 +51,11 @@
               {{radio-button name=item.no value="N" groupValue=item.agree}} N
             </td>
           </tr>
+          {{/if}}
           {{/each}}
         </tbody>
       </table>
+      <button {{action save}}>확인</button>
     </script>
 
     <!-- 내 코드 -->
