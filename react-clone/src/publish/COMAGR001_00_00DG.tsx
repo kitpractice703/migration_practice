@@ -28,6 +28,7 @@ function COMAGR001_00_00DG({ onClose }: Props) {
     }));
     console.log("[전문송신 mock] SM7903130001 →", JSON.stringify(payload));
     alert("동의서 저장 완료");
+    onClose();
   };
 
   return (
@@ -91,7 +92,6 @@ function COMAGR001_00_00DG({ onClose }: Props) {
       <div style={{ marginTop: 15, textAlign: "right" }}>
         <button onClick={onClose}>닫기</button>
         <button onClick={handleConfirm}>확인</button>
-        alert("동의서 저장 완료"); onClose();
       </div>
     </div>
   );
